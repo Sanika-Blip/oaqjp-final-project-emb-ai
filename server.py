@@ -6,14 +6,14 @@ app = Flask("Emotion Detector")
 
 
 @app.route("/emotionDetector")
-def emot_detector():
+def emotion_detector_function():
     """Analyze the text sent by the user and return a formatted response."""
-    text_to_analyze = request.args.get('textToAnalyze')
-    response = emotion_detector(text_to_analyze)
+    text_to_analyse = request.args.get('textToAnalyze')
+    response = emotion_detector(text_to_analyse)
 
     # Blank or invalid input gives a dominant_emotion of None
     if response['dominant_emotion'] is None:
-        return "Invalid text! Please try again!"
+        return "Invalid input! Try again."
 
     return (
         f"For the given statement, the system response is "
